@@ -1,0 +1,9 @@
+.vscode/
+.idea/
+*.swagger.json
+
+config.yaml
+config.yml
+
+/proto/favorites/gen
+/db_data

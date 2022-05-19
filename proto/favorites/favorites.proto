@@ -1,0 +1,26 @@
+syntax = "proto3";
+package faivourites;
+option go_package = "github.com/bearatol/favorites/proto/favorites/gen";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+message RequestData {
+    int64  ID= 1;
+    string ACTION = 2;
+}
+
+service Faivourites {
+    rpc Pharmacies(RequestData) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            post: "/api/favorite/v1/pharmacy"
+            body: ""
+        };
+    }
+    rpc Products(RequestData) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            post: "/api/favorite/v1/product"
+            body: ""
+        };
+    }
+}

@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=favorites
+      - POSTGRES_PASSWORD=favorites
+      - POSTGRES_DB=favorites
+    ports:
+      - "5444:5432"
+    volumes:
+      - ./../db_data:/var/lib/postgresql/data

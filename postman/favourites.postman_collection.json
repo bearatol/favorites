@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "f3a6ed98-059f-4263-a055-138e2f48c896",
+		"name": "favorites",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "pharmacy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "APP.token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjRmMWcyM2ExMmFhIn0.eyJpc3MiOiJodHRwczovL3d3dy5hc25hLnJ1IiwiYXVkIjoiaHR0cHM6Ly93d3cuYXNuYS5ydSIsImp0aSI6IjRmMWcyM2ExMmFhIiwiaWF0IjoxNjQ1NDY0MzM0LCJleHAiOjQwNzUzODQyNzgsImNsaWVudElkIjoiMjZmMjc1ZWYtZDlhZS00MjZiLTk2M2ItYThkNjE1MGZhNWNhIiwidXNlcklkIjowLCJkZXZpY2VJZCI6bnVsbCwiZlVzZXJJZCI6MTIzNCwicHVzaFRva2VuIjpudWxsLCJhbGxvd2VkRW50aXRpZXMiOltdLCJiYW5uZWRFbnRpdGllcyI6WyIiXSwib3NOYW1lIjpudWxsLCJkZXZpY2VNYW51ZmFjdHVyZXIiOm51bGx9.im7dz5GoE-TZ5T0LtjJdAzLdaRgnSApLM4JY3NDz20M",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:9092/api/favorite/v1/pharmacy?ID=123&ACTION=ADD",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"favorite",
+						"v1",
+						"pharmacy"
+					],
+					"query": [
+						{
+							"key": "ID",
+							"value": "123"
+						},
+						{
+							"key": "ACTION",
+							"value": "ADD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjRmMWcyM2ExMmFhIn0.eyJpc3MiOiJodHRwczovL3d3dy5hc25hLnJ1IiwiYXVkIjoiaHR0cHM6Ly93d3cuYXNuYS5ydSIsImp0aSI6IjRmMWcyM2ExMmFhIiwiaWF0IjoxNjQ1NDY0MzM0LCJleHAiOjQwNzUzODQyNzgsImNsaWVudElkIjoiMjZmMjc1ZWYtZDlhZS00MjZiLTk2M2ItYThkNjE1MGZhNWNhIiwidXNlcklkIjowLCJkZXZpY2VJZCI6bnVsbCwiZlVzZXJJZCI6MTIzNCwicHVzaFRva2VuIjpudWxsLCJhbGxvd2VkRW50aXRpZXMiOltdLCJiYW5uZWRFbnRpdGllcyI6WyIiXSwib3NOYW1lIjpudWxsLCJkZXZpY2VNYW51ZmFjdHVyZXIiOm51bGx9.im7dz5GoE-TZ5T0LtjJdAzLdaRgnSApLM4JY3NDz20M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:9092/api/favorite/v1/product?ID=1235&ACTION=DELETE",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "9092",
+					"path": [
+						"api",
+						"favorite",
+						"v1",
+						"product"
+					],
+					"query": [
+						{
+							"key": "ID",
+							"value": "1235"
+						},
+						{
+							"key": "ACTION",
+							"value": "DELETE"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

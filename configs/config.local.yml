@@ -1,0 +1,8 @@
+database:
+  url: postgres://favorites:favorites@localhost:5444/favorites?sslmode=allow&pool_max_conns=20
+grpc:
+  url: "localhost:9091"
+http:
+  url: "localhost:9092"
+farmacy:
+  jwtkey: 123
