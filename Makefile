@@ -3,6 +3,7 @@ PROTO=$(shell pwd)/proto/favorites
 GOLANGCI_LINT=$(shell which golangci-lint run)
 DATABASE="postgres://favorites:favorites@localhost:5444/favorites?sslmode=disable"
 
+.PHONY: migrations
 run: migrations
 	@go run $(DIR)/cmd/favorites/main.go -config_file="config.local.yml" -config_dir="$(DIR)/configs"
 

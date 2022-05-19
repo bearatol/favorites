@@ -2,9 +2,9 @@ package handler
 
 import (
 	"context"
+	"fmt"
 	"testing"
 
-	gw "github.com/bearatol/favorites/proto/favorites/gen"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc/codes"
@@ -12,6 +12,7 @@ import (
 	"github.com/bearatol/favorites/internal/service"
 	mock_service "github.com/bearatol/favorites/internal/service/mocks"
 	"github.com/bearatol/favorites/pkg/middleware"
+	gw "github.com/bearatol/favorites/proto/favorites/gen"
 )
 
 func TestHandlerPharmacies(t *testing.T) {
@@ -21,7 +22,7 @@ func TestHandlerPharmacies(t *testing.T) {
 		ctx context.Context
 		req *gw.RequestData
 	}
-
+	fmt.Println("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq1")
 	tests := []struct {
 		name         string
 		args         args
@@ -109,7 +110,7 @@ func TestHandlerPharmacies(t *testing.T) {
 			expectation:  newHandlerError(codes.Canceled, "the id of element is missing", nil).Err(),
 		},
 	}
-
+	fmt.Println("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq2")
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			// Init Dependencies

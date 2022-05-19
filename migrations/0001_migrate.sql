@@ -1,5 +1,3 @@
--- +goose NO TRANSACTION
-
 -- +goose Up
 -- +goose StatementBegin
 CREATE TABLE pharmacies (
