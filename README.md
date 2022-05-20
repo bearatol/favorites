@@ -25,11 +25,11 @@ tools добавлен.
 
 Параметры берутся из файла configs/config.local.yml по умолчанию. Папку конфига и сам конфиг можно изменить с помощью флагов "config_file" и "config_dir". Пример можно посмотреть в makefile, run.
 
-В папке docker лежит [docker-compose](docker/docker-compose.yml), с помощью которого можно поднять postgres. С помощью [goose](https://github.com/pressly/goose) можно залить [миграцию](database/schema).
+В папке docker лежит [docker-compose](./docker/docker-compose.yml), с помощью которого можно поднять postgres. С помощью [goose](https://github.com/pressly/goose) можно залить [миграцию](./database/schema).
 
 Для работы с сервисом есть [makefile](Makefile).
 
-Для тестирования добавлен [postman_collection](postman/favorites.postman_collection.json), который эмулирует запрос фронта.
+Для тестирования добавлен [postman_collection](./postman/favorites.postman_collection.json), который эмулирует запрос фронта.
 
 ## Description
 
