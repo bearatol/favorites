@@ -4,15 +4,18 @@ import (
 	"context"
 	"testing"
 
-	"github.com/bearatol/favorites/pkg/middleware"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc/codes"
 
 	"github.com/bearatol/favorites/internal/service"
 	mock_service "github.com/bearatol/favorites/internal/service/mocks"
+	"github.com/bearatol/favorites/pkg/logger"
+	"github.com/bearatol/favorites/pkg/middleware"
 	gw "github.com/bearatol/favorites/proto/favorites/gen"
 )
+
+var _ = logger.InitLogger()
 
 func TestHandlerProducts(t *testing.T) {
 	type mockBehavior func(r *mock_service.MockProducts, ctx context.Context, user, product int64)

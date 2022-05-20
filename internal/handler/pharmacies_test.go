@@ -2,7 +2,6 @@ package handler
 
 import (
 	"context"
-	"fmt"
 	"testing"
 
 	"github.com/golang/mock/gomock"
@@ -11,18 +10,22 @@ import (
 
 	"github.com/bearatol/favorites/internal/service"
 	mock_service "github.com/bearatol/favorites/internal/service/mocks"
+	"github.com/bearatol/favorites/pkg/logger"
 	"github.com/bearatol/favorites/pkg/middleware"
 	gw "github.com/bearatol/favorites/proto/favorites/gen"
 )
 
+var _ = logger.InitLogger()
+
 func TestHandlerPharmacies(t *testing.T) {
+
 	type mockBehavior func(r *mock_service.MockPharmacies, ctx context.Context, user, pharmacy int64)
 
 	type args struct {
 		ctx context.Context
 		req *gw.RequestData
 	}
-	fmt.Println("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq1")
+
 	tests := []struct {
 		name         string
 		args         args
@@ -110,7 +113,6 @@ func TestHandlerPharmacies(t *testing.T) {
 			expectation:  newHandlerError(codes.Canceled, "the id of element is missing", nil).Err(),
 		},
 	}
-	fmt.Println("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq2")
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			// Init Dependencies
