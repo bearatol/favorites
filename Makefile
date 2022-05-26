@@ -1,9 +1,11 @@
+PROJECTNAME=$(shell basename "$(PWD)")
 DIR=$(shell pwd)
 PROTO=$(shell pwd)/proto/favorites
 GOLANGCI_LINT=$(shell which golangci-lint run)
 DATABASE="postgres://favorites:favorites@localhost:5444/favorites?sslmode=disable"
 
 .PHONY: migrations
+## run: start the project
 run: migrations
 	@go run $(DIR)/cmd/favorites/main.go -config_file="config.local.yml" -config_dir="$(DIR)/configs"
 
@@ -11,6 +13,7 @@ local-pg:
 	@mkdir -p $(DIR)/db_data
 	@docker-compose -f $(DIR)/docker/docker-compose.local.yaml up -d
 
+## lint: start linter for the project
 lint:
 	@echo " > Start golang linter"
 	@$(GOLANGCI_LINT) run --go=1.17 --timeout 5m0s
@@ -34,6 +37,7 @@ go-clean:
 migrations:
 	@goose -dir $(DIR)/migrations postgres $(DATABASE) up
 
+## protoc: generate go files from a protobuf
 protoc:
 	rm -rf $(PROTO)/gen && mkdir $(PROTO)/gen && mkdir $(PROTO)/gen/swagger
 	protoc -I $(PROTO) \
@@ -47,3 +51,12 @@ protoc:
 	--openapiv2_opt logtostderr=true \
 	--openapiv2_opt allow_delete_body=true \
 	favorites.proto
+
+.PHONY: help
+all: help
+help: Makefile
+	@echo
+	@echo " Choose a command run in "$(PROJECTNAME)":"
+	@echo
+	@sed -n 's/^##//p' $< | column -t -s ':' |  sed -e 's/^/ /'
+	@echo
